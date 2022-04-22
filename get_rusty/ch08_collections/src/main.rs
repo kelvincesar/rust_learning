@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 fn main() {
     println!("Hello, world!");
 
@@ -53,4 +55,37 @@ fn main() {
         _ => println!("Não é um valor inteiro")
     };
     println!("{:?}", row);
+
+    // Strings are stored as a collection of UTF-8 encoded bytes
+    let mut s = String::from("teste");
+    s.push_str("bar");
+    s.push('1');
+
+
+    // Hashmaps
+    let blue = String::from("Blue");
+    let red = String::from("Red");
+
+    let mut scores = HashMap::new();
+    scores.insert(blue, 10);
+    scores.insert(red, 44);
+
+    let team_name = String::from("Blue");
+    let score = scores.get(&team_name);
+
+    for (key, value) in &scores {
+        println!("{}: {}", key, value);
+    }
+
+
+    // Contagem de palavras usando string e hash
+    let text = "hello world wonderful world";
+ 
+    let mut map =  HashMap::new();
+    // hello: 1, world:2, wornderful: 1
+    for word in text.split_whitespace() {
+        let count = map.entry(word).or_insert(0);
+        *count += 1;
+    }
+    println!("{:?}", map);
 }
