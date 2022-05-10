@@ -6,9 +6,9 @@
 //mod arrays;
 //mod vectors
 //mod conditions;
-mod loops;
-
+//mod loops;
+mod errors;
 fn main() {
     println!("Inicializando estudos...");
-    loops::run();
+    errors::run();
 }

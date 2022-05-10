@@ -29,7 +29,8 @@ pub fn run() {
     //   count += 1;
     // }
   
-    // For Range
+    // For Range (de 0 até 99)
+    // pode fzer 0..=100 para ser de 0 até 100
     for x in 0..100 {
       if x % 15 == 0 {
         println!("fizzbuzz");
@@ -41,4 +42,14 @@ pub fn run() {
         println!("{}", x);
       }
     }
+
+    let linguagem = "js";
+
+    let escolha = match linguagem {
+      "js" => "JavaScript",
+      "py" => "Python",
+      _ => "Desconhecido"
+    };
+
+    println!("A escolha é {} ", escolha );
   }
