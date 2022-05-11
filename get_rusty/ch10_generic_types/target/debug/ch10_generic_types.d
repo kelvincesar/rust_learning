@@ -1,1 +1,1 @@
-/home/kelvin/git/rust_learning/get_rusty/ch10_generic_types/target/debug/ch10_generic_types: /home/kelvin/git/rust_learning/get_rusty/ch10_generic_types/src/main.rs
+/home/kelvin/git/rust_learning/get_rusty/ch10_generic_types/target/debug/ch10_generic_types: /home/kelvin/git/rust_learning/get_rusty/ch10_generic_types/src/generics.rs /home/kelvin/git/rust_learning/get_rusty/ch10_generic_types/src/main.rs /home/kelvin/git/rust_learning/get_rusty/ch10_generic_types/src/traits.rs
