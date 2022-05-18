@@ -36,6 +36,35 @@ impl Summary for Tweet {
     }
 }
 
+pub fn notify (item: &impl Summary){
+    println!("[notify] Breaking news! {}", item.summarize());
+}
+
+/*
+// outra maneira:
+pub fn notify<T: Summary>(item: &T){
+    println!("[notify] Breaking news! {}", item.summarize());
+}
+*/
+
+use std::fmt::{Debug, Display};
+
+fn some_function<T, U>(t: &T, u: &U) -> i32
+    where T: Display + Clone,
+          U: Clone + Debug
+{
+    //....
+    return 12 
+}
+
+fn returns_summarizable() -> impl Summary {
+    Tweet {
+        username: String::from("teste_1"),
+        content: String::from("Hello teste1 !!"),
+        reply: false,
+        retweet: false
+    }
+}
 pub fn run () {
     println!("Running traits!\n");
     let tweet = Tweet {
@@ -53,4 +82,8 @@ pub fn run () {
 
     println!("Tweet: {}", tweet.summarize());
     println!("Article: {}", article.summarize());
+
+    notify(&article);
+
+    println!("A new summarize returned: {}", returns_summarizable().summarize())
 }
