@@ -4,11 +4,9 @@ use std::process;
 use minigrep::Config;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
-
     // Leitura dos argumentos
-    let config = Config::new(&args).unwrap_or_else(|err| {        
-        eprintln!("Erro ao realizar ler os argumentos: {}", err);
+    let config = Config::new(env::args()).unwrap_or_else(|err| {        
+        eprintln!("Erro ao ler os argumentos: {}", err);
         process::exit(127);
     });
 

@@ -26,27 +26,40 @@ pub struct Config {
 }
 
 impl Config {
-    pub fn new(args: &[String]) -> Result<Config, &str> {
-        if args.len() < 3 {
-            return Err("Argumentos insuficientes!")
-        }
-        // Pode ser otimizado usando lifetimes
-        let query = args[1].clone();
-        let file = args[2].clone();
+    pub fn new(mut args: env::Args) -> Result<Config, &'static  str> {
+        // ignore program name
+        args.next();
+
+        let query = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Não foi possível localizar a `query`")
+        };
+
+        let file = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Não foi possível localizar o `file_name`")
+        };
+
         let case_sensitive = env::var("CASE_INSENSITIVE").is_err();
         Ok(Config { query, file, case_sensitive })
     }
 }
 
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
-    let mut results = Vec::new();
+    /*let mut results = Vec::new();
 
     for line in contents.lines() {
         if line.contains(query){
             results.push(line);
         }
     }
-    results
+    results 
+    */
+    contents
+        .lines()
+        .filter(|line| line.contains(query))
+        .collect()
+
 }
 
 pub fn search_case_insensitive<'a>(
