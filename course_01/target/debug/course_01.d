@@ -1,1 +1,0 @@
-/home/kelvin/git/rust_learning/course_01/target/debug/course_01: /home/kelvin/git/rust_learning/course_01/src/main.rs /home/kelvin/git/rust_learning/course_01/src/structs.rs /home/kelvin/git/rust_learning/course_01/src/vectors.rs
