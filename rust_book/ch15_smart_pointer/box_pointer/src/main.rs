@@ -17,7 +17,7 @@ fn main() {
     when you have a type whose exact size
     can't be know at compile time
     and you want to use a value of that type
-    in a conetext which requires knowing the exat size;
+    in a context which requires knowing the exact size;
 
     when you have a larger amount of data and you
     want to transfer ownership of the data but you
